@@ -1,9 +1,12 @@
+arm/
+x86/
+
 #################
 ## Eclipse
 #################
 
 *.pydevproject
-.project
+
 .metadata
 bin/
 tmp/
@@ -16,6 +19,7 @@ local.properties
 .settings/
 .loadpath
 
+
 # External tool builders
 .externalToolBuilders/
 
@@ -23,7 +27,7 @@ local.properties
 *.launch
 
 # CDT-specific
-.cproject
+
 
 # PDT-specific
 .buildpath
