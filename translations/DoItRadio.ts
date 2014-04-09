@@ -4,12 +4,12 @@
 <context>
     <name>Montreal</name>
     <message>
-        <location filename="../assets/Montreal.qml" line="60"/>
+        <location filename="../assets/Montreal.qml" line="65"/>
         <source>Play</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../assets/Montreal.qml" line="68"/>
+        <location filename="../assets/Montreal.qml" line="73"/>
         <source>Stop</source>
         <translation type="unfinished"></translation>
     </message>
@@ -30,12 +30,12 @@
 <context>
     <name>RockX2</name>
     <message>
-        <location filename="../assets/RockX2.qml" line="60"/>
+        <location filename="../assets/RockX2.qml" line="65"/>
         <source>Play</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../assets/RockX2.qml" line="68"/>
+        <location filename="../assets/RockX2.qml" line="73"/>
         <source>Stop</source>
         <translation type="unfinished"></translation>
     </message>
@@ -43,12 +43,12 @@
 <context>
     <name>Saguenay</name>
     <message>
-        <location filename="../assets/Saguenay.qml" line="60"/>
+        <location filename="../assets/Saguenay.qml" line="65"/>
         <source>Play</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../assets/Saguenay.qml" line="68"/>
+        <location filename="../assets/Saguenay.qml" line="73"/>
         <source>Stop</source>
         <translation type="unfinished"></translation>
     </message>

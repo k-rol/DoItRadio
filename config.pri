@@ -52,4 +52,5 @@ lupdate_inclusion {
              $$quote($$BASEDIR/../src/*.hxx)
 }
 
-TRANSLATIONS =  $$quote($${TARGET}.ts)
+TRANSLATIONS =  $$quote($${TARGET}_fr_CA.ts) \
+         $$quote($${TARGET}.ts)

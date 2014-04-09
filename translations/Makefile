@@ -1,4 +1,4 @@
-QMAKE_TARGET  = RadioX
+QMAKE_TARGET  = DoItRadio
 LUPDATE       = $(QNX_HOST)/usr/bin/lupdate
 LRELEASE      = $(QNX_HOST)/usr/bin/lrelease
 
