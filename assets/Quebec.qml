@@ -11,12 +11,12 @@ Page {
         ]
         background: Color.Black
         Label {
-            text: "DoIt Radio"
+            text: "by DoIt Radio"
             textStyle.color: Color.create("#fff0f0f0")
             horizontalAlignment: HorizontalAlignment.Right
         }
         Container {
-            bottomMargin: 75.0
+            bottomMargin: 35.0
         
         }
         Container {

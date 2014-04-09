@@ -17,12 +17,12 @@
 <context>
     <name>Quebec</name>
     <message>
-        <location filename="../assets/Quebec.qml" line="59"/>
+        <location filename="../assets/Quebec.qml" line="64"/>
         <source>Play</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../assets/Quebec.qml" line="67"/>
+        <location filename="../assets/Quebec.qml" line="72"/>
         <source>Stop</source>
         <translation type="unfinished"></translation>
     </message>
