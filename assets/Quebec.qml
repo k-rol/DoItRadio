@@ -1,5 +1,6 @@
 import bb.cascades 1.2
 import bb.multimedia 1.0
+import bb.system 1.2
 
 Page {
     Container {
@@ -71,10 +72,24 @@ Page {
                 horizontalAlignment: HorizontalAlignment.Center
                 
                 Button {
+                    attachedObjects: [
+                        SystemToast {
+                            id: alertconnect
+                            body: qsTr("Can't connec to station...")
+                        }
+                    ]
                     text: qsTr("Play") + Retranslate.onLocaleOrLanguageChanged
                     onClicked: {
-                        if (radiox.play() != MediaError.None) {
-                            // Put your error handling code here
+                        if (radiox.play() == MediaError.UnsupportedOperation)
+                        {
+                            radiox.stop()
+                            radiox.reset()
+                            if (radiox.play() != MediaError.None) {
+                                alertconnect.show()
+                            }
+                        }
+                        else if (radiox.play() != MediaError.None) {
+                            alertconnect.show()
                         }
                     }
                 }
