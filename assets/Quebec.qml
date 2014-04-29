@@ -8,10 +8,29 @@ Page {
             MediaPlayer {
                 id: radiox
                 sourceUrl: "http://stream.rncmedia.ca/choi.mp3"
+                onMediaStateChanged: {
+                    switch (radiox.mediaState) {
+                        case MediaState.Unprepared:
+                        	playButton.text = "Play"
+                        	stopButton.enabled = false
+                        	break;
+                        case MediaState.Stopped:
+                            playButton.text = "Play"
+                            stopButton.enabled = false
+                        	break;
+                        case MediaState.Prepared:
+                            playButton.text = "Pause"
+                        	stopButton.enabled = true
+                        	break;
+                        case MediaState.Started:
+                            playButton.text = "Pause"
+                        	stopButton.enabled = true
+                        	break;
+                    }
+                }
             }
         ]
         background: Color.Black
-        
 
         ImageView {
             imageSource: "asset:///images/radio%20noyellow%20image.png"
@@ -53,13 +72,19 @@ Page {
                     }
                 
                 }
-                
+                ActivityIndicator {
+                    id: inProcess
+                    preferredHeight: 130
+                    preferredWidth: 130
+                    horizontalAlignment: HorizontalAlignment.Center
+                    verticalAlignment: VerticalAlignment.Center
+                }  
                 ImageView {
                     imageSource: "asset:///images/choiQuebec.png"
                 
                 }
             
-            
+
             }
             
             Container {
@@ -72,29 +97,28 @@ Page {
                 horizontalAlignment: HorizontalAlignment.Center
                 
                 Button {
+                    id: playButton
                     attachedObjects: [
                         SystemToast {
                             id: alertconnect
                             body: qsTr("Can't connec to station...")
+                        },
+                        SystemToast {
+                            id: alertbuffering
+                            body: qsTr("Buffering...")
                         }
                     ]
                     text: qsTr("Play") + Retranslate.onLocaleOrLanguageChanged
                     onClicked: {
-                        if (radiox.play() == MediaError.UnsupportedOperation)
-                        {
-                            radiox.stop()
-                            radiox.reset()
-                            if (radiox.play() != MediaError.None) {
-                                alertconnect.show()
-                            }
-                        }
-                        else if (radiox.play() != MediaError.None) {
-                            alertconnect.show()
-                        }
+                        inProcess.running = true
+                        alertbuffering.show()
+                        playRadio()
+                        
                     }
                 }
-                
+
                 Button {
+                    id: stopButton
                     text: qsTr("Stop") + Retranslate.onLocaleOrLanguageChanged
                     onClicked: {
                         radiox.reset()
@@ -102,9 +126,26 @@ Page {
                             // Put your error handling code here
                         }
                     }
-                }  
+                }
+
             }
         }
     
     }
+    function playRadio(){
+        var errorMsg = radiox.play()
+        switch (errorMsg) {
+            case MediaError.None:
+                break;
+            case MediaError.UnsupportedOperation:
+                radiox.stop()
+                radiox.reset()
+                radiox.play()
+                break;
+            default:
+                alertconnect.show()
+                break;
+        }
+        inProcess.stop()
+    }//End playRadio function
 }
