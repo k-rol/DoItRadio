@@ -126,6 +126,9 @@ Page {
                             // Put your error handling code here
                         }
                     }
+                    onCreationCompleted: {
+                        stopButton.clicked()
+                    }
                 }
 
             }
@@ -133,7 +136,7 @@ Page {
     
     }
     function playRadio(){
-        var errorMsg = radiox.play()
+        
         console.debug("Before Ifs")
         console.debug(radiox.mediaState.Stopped)
         console.debug(radiox.mediaState.Unprepared)

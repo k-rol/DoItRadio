@@ -3,26 +3,38 @@ BASEDIR =  $$quote($$_PRO_FILE_PWD_)
 
 device {
     CONFIG(debug, debug|release) {
-        SOURCES +=  $$quote($$BASEDIR/src/applicationui.cpp) \
+        LIBS += -lbbmultimedia
+
+        SOURCES +=  $$quote($$BASEDIR/src/Radioplay.cpp) \
+                 $$quote($$BASEDIR/src/applicationui.cpp) \
                  $$quote($$BASEDIR/src/main.cpp)
 
-        HEADERS +=  $$quote($$BASEDIR/src/applicationui.hpp)
+        HEADERS +=  $$quote($$BASEDIR/src/Radioplay.h) \
+                 $$quote($$BASEDIR/src/applicationui.hpp)
     }
 
     CONFIG(release, debug|release) {
-        SOURCES +=  $$quote($$BASEDIR/src/applicationui.cpp) \
+        LIBS += -lbbmultimedia
+
+        SOURCES +=  $$quote($$BASEDIR/src/Radioplay.cpp) \
+                 $$quote($$BASEDIR/src/applicationui.cpp) \
                  $$quote($$BASEDIR/src/main.cpp)
 
-        HEADERS +=  $$quote($$BASEDIR/src/applicationui.hpp)
+        HEADERS +=  $$quote($$BASEDIR/src/Radioplay.h) \
+                 $$quote($$BASEDIR/src/applicationui.hpp)
     }
 }
 
 simulator {
     CONFIG(debug, debug|release) {
-        SOURCES +=  $$quote($$BASEDIR/src/applicationui.cpp) \
+        LIBS += -lbbmultimedia
+
+        SOURCES +=  $$quote($$BASEDIR/src/Radioplay.cpp) \
+                 $$quote($$BASEDIR/src/applicationui.cpp) \
                  $$quote($$BASEDIR/src/main.cpp)
 
-        HEADERS +=  $$quote($$BASEDIR/src/applicationui.hpp)
+        HEADERS +=  $$quote($$BASEDIR/src/Radioplay.h) \
+                 $$quote($$BASEDIR/src/applicationui.hpp)
     }
 }
 
