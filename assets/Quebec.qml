@@ -28,6 +28,7 @@ Page {
                         	break;
                     }
                 }
+                
             }
         ]
         background: Color.Black
@@ -111,7 +112,6 @@ Page {
                     text: qsTr("Play") + Retranslate.onLocaleOrLanguageChanged
                     onClicked: {
                         inProcess.running = true
-                        alertbuffering.show()
                         playRadio()
                         
                     }
@@ -122,7 +122,7 @@ Page {
                     text: qsTr("Stop") + Retranslate.onLocaleOrLanguageChanged
                     onClicked: {
                         radiox.reset()
-                        if (radioxquebec.stop() != MediaError.None) {
+                        if (radiox.stop() != MediaError.None) {
                             // Put your error handling code here
                         }
                     }
@@ -134,18 +134,35 @@ Page {
     }
     function playRadio(){
         var errorMsg = radiox.play()
-        switch (errorMsg) {
-            case MediaError.None:
-                break;
-            case MediaError.UnsupportedOperation:
-                radiox.stop()
-                radiox.reset()
-                radiox.play()
-                break;
-            default:
-                alertconnect.show()
-                break;
+        console.debug("Before Ifs")
+        console.debug(radiox.mediaState.Stopped)
+        console.debug(radiox.mediaState.Unprepared)
+        console.debug(radiox.mediaState.Paused)
+        if (radiox.mediaState.Stopped || radiox.mediaState.Unprepared || radiox.mediaState.Paused) 
+        {
+            console.debug("should play here")
+            alertbuffering.show()
+            var errorMsg = radiox.play()
+            
+            switch (errorMsg) {
+                case MediaError.None:
+                    break;
+                case MediaError.UnsupportedOperation:
+                    radiox.stop()
+                    radiox.reset()
+                    radiox.play()
+                    break;
+                default:
+                    alertconnect.show()
+                    break;
+            }
         }
+        else if (radiox.mediaState.Started || radiox.mediaState.Prepared)
+        {
+            console.debug("should pause here")
+            radiox.pause()
+        }
+        console.debug("After Ifs")
         inProcess.stop()
     }//End playRadio function
 }
