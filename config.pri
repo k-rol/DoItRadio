@@ -5,22 +5,22 @@ device {
     CONFIG(debug, debug|release) {
         LIBS += -lbbmultimedia
 
-        SOURCES +=  $$quote($$BASEDIR/src/Radioplay.cpp) \
+        SOURCES +=  $$quote($$BASEDIR/src/Radioplayer.cpp) \
                  $$quote($$BASEDIR/src/applicationui.cpp) \
                  $$quote($$BASEDIR/src/main.cpp)
 
-        HEADERS +=  $$quote($$BASEDIR/src/Radioplay.h) \
+        HEADERS +=  $$quote($$BASEDIR/src/Radioplayer.h) \
                  $$quote($$BASEDIR/src/applicationui.hpp)
     }
 
     CONFIG(release, debug|release) {
         LIBS += -lbbmultimedia
 
-        SOURCES +=  $$quote($$BASEDIR/src/Radioplay.cpp) \
+        SOURCES +=  $$quote($$BASEDIR/src/Radioplayer.cpp) \
                  $$quote($$BASEDIR/src/applicationui.cpp) \
                  $$quote($$BASEDIR/src/main.cpp)
 
-        HEADERS +=  $$quote($$BASEDIR/src/Radioplay.h) \
+        HEADERS +=  $$quote($$BASEDIR/src/Radioplayer.h) \
                  $$quote($$BASEDIR/src/applicationui.hpp)
     }
 }
@@ -29,11 +29,11 @@ simulator {
     CONFIG(debug, debug|release) {
         LIBS += -lbbmultimedia
 
-        SOURCES +=  $$quote($$BASEDIR/src/Radioplay.cpp) \
+        SOURCES +=  $$quote($$BASEDIR/src/Radioplayer.cpp) \
                  $$quote($$BASEDIR/src/applicationui.cpp) \
                  $$quote($$BASEDIR/src/main.cpp)
 
-        HEADERS +=  $$quote($$BASEDIR/src/Radioplay.h) \
+        HEADERS +=  $$quote($$BASEDIR/src/Radioplayer.h) \
                  $$quote($$BASEDIR/src/applicationui.hpp)
     }
 }
