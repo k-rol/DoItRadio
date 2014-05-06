@@ -2,27 +2,26 @@
  * Radioplayer.cpp
  *
  *  Created on: 2014-04-30
- *      Author: CaroL
+ *      Author: cauellet
  */
 
 #include "Radioplayer.h"
 #include <bb/multimedia/MediaPlayer>
 
-using namespace bb::multimedia;
 
-Radioplayer::Radioplayer(QObject* parent)
+Radioplayer::Radioplayer(QObject *parent)
 	: QObject(parent)
-	, radio_player(new MediaPlayer(this))
+	, mediaPlayer_Radio(new MediaPlayer(this))
 {
 }
 
 void Radioplayer::playThis(const QUrl &station)
 {
-	radio_player->setSourceUrl(station);
-	radio_player->play();
+	mediaPlayer_Radio->setSourceUrl(station);
+	mediaPlayer_Radio->play();
 }
 
-Radioplayer::~Radioplayer(){
+Radioplayer::~Radioplayer() {
 	// TODO Auto-generated destructor stub
 }
 

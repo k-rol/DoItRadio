@@ -1,32 +1,32 @@
 /*
- * Radioplayer.h
+ * Radioplay.h
  *
  *  Created on: 2014-04-30
- *      Author: CaroL
+ *      Author: cauellet
  */
 
 #ifndef RADIOPLAYER_H_
 #define RADIOPLAYER_H_
-
-#include <bb/multimedia/MediaPlayer>
 #include <QObject>
-class bb::multimedia::MediaPlayer;
+#include <bb/multimedia/MediaPlayer>
+
+//class bb::multimedia::MediaPlayer;
 
 using namespace bb::multimedia;
-/*
- *
- */
+
 class Radioplayer : public QObject {
+
 	Q_OBJECT
 public:
-	Radioplayer(QObject* parent=0);
+	Radioplayer(QObject* parent = 0);
 	virtual ~Radioplayer();
 
 public Q_SLOTS:
 	void playThis(const QUrl &station);
 
 private:
-	MediaPlayer* radio_player;
+	MediaPlayer* mediaPlayer_Radio;
+
 };
 
-#endif /* RADIOPLAYER_H_ */
+#endif /* RADIOPLAY_H_ */
