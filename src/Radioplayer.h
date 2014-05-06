@@ -23,8 +23,10 @@ public:
 
 public Q_SLOTS:
 	void playThis(const QUrl &station);
+	void stopThis();
 
 private:
+	void checkError();
 	MediaPlayer* mediaPlayer_Radio;
 
 };

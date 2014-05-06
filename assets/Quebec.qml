@@ -1,6 +1,7 @@
 import bb.cascades 1.2
 import bb.multimedia 1.0
 import bb.system 1.2
+import Radioplayer 1.0
 
 Page {
     Container {
@@ -28,6 +29,7 @@ Page {
                         	break;
                     }
                 }
+                
                 
             }
         ]
@@ -107,12 +109,18 @@ Page {
                         SystemToast {
                             id: alertbuffering
                             body: qsTr("Buffering...")
+                        },
+                        Radioplayer {
+                            id: radioplayer
                         }
                     ]
                     text: qsTr("Play") + Retranslate.onLocaleOrLanguageChanged
                     onClicked: {
                         inProcess.running = true
-                        playRadio()
+                        
+                        radioplayer.playThis("http://stream.rncmedia.ca/choi.mp3")
+                        
+                        //playRadio()
                         
                     }
                 }
@@ -121,10 +129,11 @@ Page {
                     id: stopButton
                     text: qsTr("Stop") + Retranslate.onLocaleOrLanguageChanged
                     onClicked: {
-                        radiox.reset()
+                        radioplayer.stopThis()
+/*                        radiox.reset()
                         if (radiox.stop() != MediaError.None) {
                             // Put your error handling code here
-                        }
+                        }*/
                     }
                     onCreationCompleted: {
                         stopButton.clicked()

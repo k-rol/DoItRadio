@@ -31,7 +31,8 @@ Q_DECL_EXPORT int main(int argc, char **argv)
 {
     Application app(argc, argv);
 
-    qmlRegisterType<Radioplayer>("myRadioplayer", 1, 0, "myRadioplayer");
+    qmlRegisterType<Radioplayer>("Radioplayer", 1, 0, "Radioplayer");
+
     // Create the Application UI object, this is where the main.qml file
     // is loaded and the application scene is set.
     new ApplicationUI(&app);

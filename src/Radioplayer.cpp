@@ -7,6 +7,7 @@
 
 #include "Radioplayer.h"
 #include <bb/multimedia/MediaPlayer>
+#include <QDebug>
 
 
 Radioplayer::Radioplayer(QObject *parent)
@@ -17,9 +18,27 @@ Radioplayer::Radioplayer(QObject *parent)
 
 void Radioplayer::playThis(const QUrl &station)
 {
+	QString mediaErrorMsg;
+
 	mediaPlayer_Radio->setSourceUrl(station);
-	mediaPlayer_Radio->play();
+	mediaErrorMsg = mediaPlayer_Radio->play();
+	checkError();
 }
+
+void Radioplayer::stopThis()
+{
+	mediaPlayer_Radio->stop();
+	mediaPlayer_Radio->reset();
+}
+
+void Radioplayer::checkError()
+{
+	qDebug() << "!!!!!!!!!!!!!";
+	qDebug() << mediaPlayer_Radio->mediaError();
+	qDebug() << "!!!!!!!!!!!!!";
+
+}
+
 
 Radioplayer::~Radioplayer() {
 	// TODO Auto-generated destructor stub
