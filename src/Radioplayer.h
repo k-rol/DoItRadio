@@ -24,7 +24,7 @@ public:
 public Q_SLOTS:
 	void playThis(const QUrl &station);
 	void stopThis();
-	void playThatNow();
+	void playThatNow(void);
 
 Q_SIGNALS:
 	void playingStarted(const QString &buttonState);

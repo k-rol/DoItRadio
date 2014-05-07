@@ -8,6 +8,9 @@
 #include "Radioplayer.h"
 #include <bb/multimedia/MediaPlayer>
 #include <QDebug>
+#include <QThread>
+#include <QtConcurrentRun>
+#include <QFuture>
 
 
 Radioplayer::Radioplayer(QObject *parent)
@@ -41,8 +44,11 @@ void Radioplayer::checkState(const QUrl &station)
 	{
 		emit playingStarted("Playing..");
 		mediaPlayer_Radio->setSourceUrl(station);
-		emit playNow();
+		//emit playNow();
 		//mediaPlayer_Radio->play();
+		extern void aFunction();
+		QFuture<void> future = QtConcurrent::run(playThatNow);
+
 
 	}
 	else if (mediaPlayer_Radio->mediaState() == MediaState::Paused)
@@ -53,7 +59,7 @@ void Radioplayer::checkState(const QUrl &station)
 	}
 }
 
-void Radioplayer::playThatNow()
+void Radioplayer::playThatNow(void)
 {
 	mediaPlayer_Radio->play();
 }
