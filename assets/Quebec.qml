@@ -6,6 +6,15 @@ import Radioplayer 1.0
 Page {
     Container {
         attachedObjects: [
+        	Radioplayer {
+        		id: radioplayer
+        		onPlayingStarted: {
+        			playButton.text = buttonState
+          }
+        		onPlayNow: {
+              radioplayer.playThatNow()
+          }
+        	},
             MediaPlayer {
                 id: radiox
                 sourceUrl: "http://stream.rncmedia.ca/choi.mp3"
@@ -29,7 +38,6 @@ Page {
                         	break;
                     }
                 }
-                
                 
             }
         ]
@@ -109,9 +117,6 @@ Page {
                         SystemToast {
                             id: alertbuffering
                             body: qsTr("Buffering...")
-                        },
-                        Radioplayer {
-                            id: radioplayer
                         }
                     ]
                     text: qsTr("Play") + Retranslate.onLocaleOrLanguageChanged

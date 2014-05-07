@@ -18,10 +18,7 @@ Radioplayer::Radioplayer(QObject *parent)
 
 void Radioplayer::playThis(const QUrl &station)
 {
-	QString mediaErrorMsg;
-
-	mediaPlayer_Radio->setSourceUrl(station);
-	mediaErrorMsg = mediaPlayer_Radio->play();
+	checkState(station);
 	checkError();
 }
 
@@ -29,6 +26,36 @@ void Radioplayer::stopThis()
 {
 	mediaPlayer_Radio->stop();
 	mediaPlayer_Radio->reset();
+	emit playingStarted("Play");
+}
+
+void Radioplayer::checkState(const QUrl &station)
+{
+	if(mediaPlayer_Radio->mediaState() == MediaState::Prepared || mediaPlayer_Radio->mediaState() == MediaState::Started)
+	{
+		emit playingStarted("Paused");
+		mediaPlayer_Radio->pause();
+
+	}
+	else if (mediaPlayer_Radio->mediaState() == MediaState::Unprepared || mediaPlayer_Radio->mediaState() == MediaState::Stopped)
+	{
+		emit playingStarted("Playing..");
+		mediaPlayer_Radio->setSourceUrl(station);
+		emit playNow();
+		//mediaPlayer_Radio->play();
+
+	}
+	else if (mediaPlayer_Radio->mediaState() == MediaState::Paused)
+	{
+		emit playingStarted("Playing..");
+		mediaPlayer_Radio->play();
+
+	}
+}
+
+void Radioplayer::playThatNow()
+{
+	mediaPlayer_Radio->play();
 }
 
 void Radioplayer::checkError()
