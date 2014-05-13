@@ -121,7 +121,7 @@ Page {
                     ]
                     text: qsTr("Play") + Retranslate.onLocaleOrLanguageChanged
                     onClicked: {
-                        inProcess.running = true
+                        //inProcess.running = true
                         
                         radioplayer.playThis("http://stream.rncmedia.ca/choi.mp3")
                         

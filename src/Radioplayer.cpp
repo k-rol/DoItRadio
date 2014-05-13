@@ -45,9 +45,9 @@ void Radioplayer::checkState(const QUrl &station)
 		emit playingStarted("Playing..");
 		mediaPlayer_Radio->setSourceUrl(station);
 		//emit playNow();
-		//mediaPlayer_Radio->play();
-		extern void aFunction();
-		QFuture<void> future = QtConcurrent::run(playThatNow);
+		mediaPlayer_Radio->play();
+		//extern void aFunction();
+		//QFuture<void> future = QtConcurrent::run(playThatNow);
 
 
 	}
