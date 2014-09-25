@@ -27,7 +27,7 @@ Page {
         }
         
         Container { //banner + radioxlogo + buttons
-            translationY: -50.0
+            translationY: -10.0
             Container {
                 layout: DockLayout {
                 
@@ -35,9 +35,9 @@ Page {
                 
                 Container {
                     
-                    background: Color.create("#ffffe55d")
+                    background: Color.create("#ffffffff")
                     preferredWidth: 800.0
-                    preferredHeight: 200.0
+                    preferredHeight: 260.0
                     verticalAlignment: VerticalAlignment.Bottom
                     Container {
                         horizontalAlignment: HorizontalAlignment.Center
@@ -45,28 +45,31 @@ Page {
                         leftPadding: 200.0
                         topPadding: 50.0
                         Label {
-                            text: "Montréal"
+                            text: "  Radio9\nMontreal  "
                             textFit.minFontSizeValue: 12.0
                             textFit.maxFontSizeValue: 17.0
-                            textStyle.color: Color.Black
+                            textStyle.color: Color.create("#203C7C")
+                            multiline: true
+                            autoSize.maxLineCount: 2
                         }    
                     }
                 
                 }
                 ImageView {
-                    imageSource: "asset:///images/cklxMontreal.png"
-                
+                    imageSource: "asset:///images/radio9.png"
+                    translationX: 30.0
+                    translationY: 15.0
+
                 }
-            
-            
+
             }
-            
+
             Container {
                 layout: StackLayout {
                     orientation: LayoutOrientation.LeftToRight
-                
+
                 }
-                
+
                 topMargin: 100.0
                 horizontalAlignment: HorizontalAlignment.Center
                 Button {
@@ -78,15 +81,13 @@ Page {
                     ]
                     text: qsTr("Play") + Retranslate.onLocaleOrLanguageChanged
                     onClicked: {
-                        if (radiox.play() == MediaError.UnsupportedOperation)
-                        {
+                        if (radiox.play() == MediaError.UnsupportedOperation) {
                             radiox.stop()
                             radiox.reset()
                             if (radiox.play() != MediaError.None) {
                                 alertconnect.show()
                             }
-                        }
-                        else if (radiox.play() != MediaError.None) {
+                        } else if (radiox.play() != MediaError.None) {
                             alertconnect.show()
                         }
                     }
@@ -99,10 +100,9 @@ Page {
                             // Put your error handling code here
                         }
                     }
-                }  
+                }
             }
         }
-        
-        
+
     }
 }
