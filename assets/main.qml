@@ -64,7 +64,7 @@ TabbedPane {
             source: "Montreal.qml"
         }
         delegateActivationPolicy: TabDelegateActivationPolicy.ActivatedWhileSelected
-        imageSource: "asset:///images/cklxMontreal.png"
+        imageSource: "asset:///images/radio9%20white.png"
         
 
     } //End of second tab

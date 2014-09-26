@@ -56,6 +56,7 @@ config_pri_assets {
         $$quote($$BASEDIR/assets/images/icon.png) \
         $$quote($$BASEDIR/assets/images/radio circle image.png) \
         $$quote($$BASEDIR/assets/images/radio noyellow image.png) \
+        $$quote($$BASEDIR/assets/images/radio9 white.png) \
         $$quote($$BASEDIR/assets/images/radio9.png) \
         $$quote($$BASEDIR/assets/main.qml)
 }

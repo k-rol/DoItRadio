@@ -1,13 +1,19 @@
 import bb.cascades 1.2
 import bb.multimedia 1.0
 import bb.system 1.2
+import Radioplayer 1.0
 
 Page {
     Container {
         attachedObjects: [
-            MediaPlayer {
-                id: radiox
-                sourceUrl: "http://stream.rncmedia.ca/cklx.mp3"
+            Radioplayer {
+                id: radioplayer
+                onPlayingStarted: {
+                    playButton.text = buttonState
+                }
+                onPlayNow: {
+                    radioplayer.playThatNow()
+                }
             }
         ]
         background: Color.Black
@@ -45,7 +51,7 @@ Page {
                         leftPadding: 200.0
                         topPadding: 50.0
                         Label {
-                            text: "  Radio9\nMontreal  "
+                            text: "  Radio9\nMontréal  "
                             textFit.minFontSizeValue: 12.0
                             textFit.maxFontSizeValue: 17.0
                             textStyle.color: Color.create("#203C7C")
@@ -73,6 +79,7 @@ Page {
                 topMargin: 100.0
                 horizontalAlignment: HorizontalAlignment.Center
                 Button {
+                    id: playButton
                     attachedObjects: [
                         SystemToast {
                             id: alertconnect
@@ -81,24 +88,18 @@ Page {
                     ]
                     text: qsTr("Play") + Retranslate.onLocaleOrLanguageChanged
                     onClicked: {
-                        if (radiox.play() == MediaError.UnsupportedOperation) {
-                            radiox.stop()
-                            radiox.reset()
-                            if (radiox.play() != MediaError.None) {
-                                alertconnect.show()
-                            }
-                        } else if (radiox.play() != MediaError.None) {
-                            alertconnect.show()
-                        }
+                        radioplayer.playThis("http://stream.rncmedia.ca/cklx.mp3")
+                        
                     }
                 }
                 Button {
+                    id: stopButton
                     text: qsTr("Stop") + Retranslate.onLocaleOrLanguageChanged
                     onClicked: {
-                        radiox.reset()
-                        if (radioxquebec.stop() != MediaError.None) {
-                            // Put your error handling code here
-                        }
+                        radioplayer.stopThis()
+                    }
+                    onCreationCompleted: {
+                        stopButton.clicked()
                     }
                 }
             }
