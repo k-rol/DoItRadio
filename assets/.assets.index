@@ -1,5 +1,12 @@
 1
-15
+23
+1440x1440/main.qml
+1440x1440/Montreal.qml
+1440x1440/Quebec.qml
+1440x1440/RockX2.qml
+1440x1440/Saguenay.qml
+images/choiQuebec BW.png
+images/choiQuebec.amd
 images/choiQuebec.png
 images/chxxRock.png
 images/cklxMontreal.png
@@ -9,6 +16,7 @@ images/radio circle image.png
 images/radio noyellow image.png
 images/radio9 white.png
 images/radio9.png
+images/Thumbs.db
 main.qml
 Montreal.qml
 Quebec.qml

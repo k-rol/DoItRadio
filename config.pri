@@ -44,11 +44,19 @@ simulator {
 
 config_pri_assets {
     OTHER_FILES += \
+        $$quote($$BASEDIR/assets/1440x1440/Montreal.qml) \
+        $$quote($$BASEDIR/assets/1440x1440/Quebec.qml) \
+        $$quote($$BASEDIR/assets/1440x1440/RockX2.qml) \
+        $$quote($$BASEDIR/assets/1440x1440/Saguenay.qml) \
+        $$quote($$BASEDIR/assets/1440x1440/main.qml) \
         $$quote($$BASEDIR/assets/Montreal.qml) \
         $$quote($$BASEDIR/assets/Quebec.qml) \
         $$quote($$BASEDIR/assets/RockX2.qml) \
         $$quote($$BASEDIR/assets/Saguenay.qml) \
         $$quote($$BASEDIR/assets/Settings.qml) \
+        $$quote($$BASEDIR/assets/images/Thumbs.db) \
+        $$quote($$BASEDIR/assets/images/choiQuebec BW.png) \
+        $$quote($$BASEDIR/assets/images/choiQuebec.amd) \
         $$quote($$BASEDIR/assets/images/choiQuebec.png) \
         $$quote($$BASEDIR/assets/images/chxxRock.png) \
         $$quote($$BASEDIR/assets/images/cklxMontreal.png) \
@@ -88,6 +96,9 @@ lupdate_inclusion {
         $$quote($$BASEDIR/../assets/*.qml) \
         $$quote($$BASEDIR/../assets/*.js) \
         $$quote($$BASEDIR/../assets/*.qs) \
+        $$quote($$BASEDIR/../assets/1440x1440/*.qml) \
+        $$quote($$BASEDIR/../assets/1440x1440/*.js) \
+        $$quote($$BASEDIR/../assets/1440x1440/*.qs) \
         $$quote($$BASEDIR/../assets/images/*.qml) \
         $$quote($$BASEDIR/../assets/images/*.js) \
         $$quote($$BASEDIR/../assets/images/*.qs)

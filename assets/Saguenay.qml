@@ -92,6 +92,7 @@ Page {
                     onClicked: {
                         radioplayer.playThis("http://stream.rncmedia.ca/chicoutimi.radiox.mp3")
                     }
+
                 }
                 Button {
                     id: stopButton

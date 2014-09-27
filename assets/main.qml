@@ -18,32 +18,42 @@ import bb.cascades 1.2
 import bb.multimedia 1.0
 
 TabbedPane {
-	id: myTabbedPane
-	
+    id: myTabbedPane
+
     property int defaultChannel: doitsettings.getSettings("DefaultChannel")
-	activeTab: if (defaultChannel == 0)	{activeTab: quebecTab}
-	else if (defaultChannel == 1){activeTab: montrealTab}
-	else if (defaultChannel == 2){activeTab: saguenayTab}
-	else if (defaultChannel == 3){activeTab: rockX2Tab}
-	
+    activeTab: if (defaultChannel == 0) {
+        activeTab:
+        quebecTab
+    } else if (defaultChannel == 1) {
+        activeTab:
+        montrealTab
+    } else if (defaultChannel == 2) {
+        activeTab:
+        saguenayTab
+    } else if (defaultChannel == 3) {
+        activeTab:
+        rockX2Tab
+    }
+
     attachedObjects: [
         Settings {
             id: settings
         }
-        
+
     ]
     Menu.definition: MenuDefinition {
         helpAction: HelpActionItem {
-        
+
         }
         settingsAction: SettingsActionItem {
             onTriggered: {
                 settings.open()
             }
         }
-    
+
     }
     showTabsOnActionBar: true
+
     Tab { //First tab
         // Localized text with the dynamic translation and locale updates support
         title: qsTr("Québec")
@@ -65,10 +75,9 @@ TabbedPane {
         }
         delegateActivationPolicy: TabDelegateActivationPolicy.ActivatedWhileSelected
         imageSource: "asset:///images/radio9%20white.png"
-        
 
     } //End of second tab
-    
+
     Tab { //Third tab
         title: qsTr("Saguenay")
         id: saguenayTab
@@ -80,7 +89,7 @@ TabbedPane {
         imageSource: "asset:///images/ckykSaguenay.png"
 
     } //End of Third tab
-    
+
     Tab { //Fourth tab
         title: qsTr("Rock X 2")
         id: rockX2Tab
