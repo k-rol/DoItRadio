@@ -54,7 +54,6 @@ config_pri_assets {
         $$quote($$BASEDIR/assets/RockX2.qml) \
         $$quote($$BASEDIR/assets/Saguenay.qml) \
         $$quote($$BASEDIR/assets/Settings.qml) \
-        $$quote($$BASEDIR/assets/images/Thumbs.db) \
         $$quote($$BASEDIR/assets/images/choiQuebec BW.png) \
         $$quote($$BASEDIR/assets/images/choiQuebec.amd) \
         $$quote($$BASEDIR/assets/images/choiQuebec.png) \

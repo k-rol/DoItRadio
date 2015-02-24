@@ -15,6 +15,11 @@ Sheet {
                         doitsettings.setSettings("DefaultChannel",radiogroup_qml.selectedOption.value)    
                     }
                     
+                    if (radioTab1.selectedOption.value != null)
+                    {
+                        doitsettings.setSettings("sourceTab1", radioTab1.selectedOption.value)
+                    }
+                    
                     settings.close()
                 }
             }
@@ -38,6 +43,20 @@ Sheet {
                 Option { id: saguenayStart; text: "Saguenay"; value: 2}
                 Option { id: radiox2Start; text: "Radio X 2"; value: 3}
             }
+            
+            Label {
+                text: "Choose the Tab 1's station:"
+                translationY: 10.0
+            }
+            
+            RadioGroup {
+                enabled: true
+                id: radioTab1
+                Option { id: quebecTab1Start; text: "Québec"; value: "Quebec.qml" }
+                Option { id: montrealTab1Start; text: "Montreal"; value: "Montreal.qml" }
+            }
+            
+            
         
         }
         onCreationCompleted: {
