@@ -21,7 +21,6 @@ TabbedPane {
     id: myTabbedPane
 
     property string sourceTab1: doitsettings.getSettings("sourceTab1")
-    //property string sourceTab1: "Quebec.qml"
     
     property int defaultChannel: doitsettings.getSettings("DefaultChannel")
     activeTab: if (defaultChannel == 0) {
@@ -59,10 +58,6 @@ TabbedPane {
         title: qsTr("Québec")
         id: quebecTab
         delegate: Delegate {
-            onSourceChanged: {
-                console.debug("it changed!")
-                console.debug(sourceTab1)
-            }
             id: delegatequebectab
             //source: "Quebec.qml"
             source: sourceTab1
@@ -106,8 +101,5 @@ TabbedPane {
         imageSource: "asset:///images/chxxRock.png"
 
     } //End of fourth tab
-    
-    function somthingcool(){
-        
-    }
+
 }

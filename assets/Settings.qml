@@ -18,6 +18,7 @@ Sheet {
                     if (radioTab1.selectedOption.value != null)
                     {
                         doitsettings.setSettings("sourceTab1", radioTab1.selectedOption.value)
+                        sourceTab1 = radioTab1.selectedOption.value
                     }
                     
                     settings.close()
