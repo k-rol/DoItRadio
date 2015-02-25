@@ -54,7 +54,7 @@ config_pri_assets {
         $$quote($$BASEDIR/assets/RockX2.qml) \
         $$quote($$BASEDIR/assets/Saguenay.qml) \
         $$quote($$BASEDIR/assets/Settings.qml) \
-        $$quote($$BASEDIR/assets/images/Thumbs.db) \
+        $$quote($$BASEDIR/assets/doitradiolist.db) \
         $$quote($$BASEDIR/assets/images/choiQuebec BW.png) \
         $$quote($$BASEDIR/assets/images/choiQuebec.amd) \
         $$quote($$BASEDIR/assets/images/choiQuebec.png) \
@@ -72,11 +72,13 @@ config_pri_assets {
 config_pri_source_group1 {
     SOURCES += \
         $$quote($$BASEDIR/src/Radioplayer.cpp) \
+        $$quote($$BASEDIR/src/SqlDataSource.cpp) \
         $$quote($$BASEDIR/src/applicationui.cpp) \
         $$quote($$BASEDIR/src/main.cpp)
 
     HEADERS += \
         $$quote($$BASEDIR/src/Radioplayer.h) \
+        $$quote($$BASEDIR/src/SqlDataSource.h) \
         $$quote($$BASEDIR/src/applicationui.hpp)
 }
 
